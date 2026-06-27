@@ -6,6 +6,7 @@ Long-form documentation lives here.
 
 - [PROPOSAL.md](../PROPOSAL.md) — design proposal, methodology, milestones
 - [SPECIFICATION.md](../SPECIFICATION.md) — original 3-line spec
+- [CLOUD_GPU.md](CLOUD_GPU.md) — provider comparison, pricing, recommendations
 - [Architecture decision records](#adrs) — significant design choices
 
 ## Architecture Decision Records

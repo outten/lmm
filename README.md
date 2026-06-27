@@ -114,7 +114,9 @@ make sandbox-test
 
 ## Training a new version
 
-See [PROPOSAL.md §5](PROPOSAL.md#5-fine-tuning-methodology) for the full plan. Short version:
+See [PROPOSAL.md §5](PROPOSAL.md#5-fine-tuning-methodology) for the full plan, and [docs/CLOUD_GPU.md](docs/CLOUD_GPU.md) for cloud GPU pricing, provider comparison, and a per-version recommendation.
+
+Short version:
 
 ```bash
 # 1. Reformat a public dataset into the code-first format
