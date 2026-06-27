@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  sandbox-tests:
+    name: Sandbox tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install runtime deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install matplotlib sympy numpy
+
+      - name: Run sandbox tests
+        run: python -m unittest discover tests -v
+
+      - name: Smoke-check the CLI imports
+        run: |
+          python -c "from sandbox import run_sandboxed, extract_code_blocks, render_followup"
+          python -c "from sandbox.runtimes import ALL_RUNTIMES; assert 'python' in ALL_RUNTIMES"
+          python -c "from eval.harness import run_benchmark, evaluate_problem"
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: ruff
+        run: |
+          pip install ruff
+          ruff check . --output-format=github
+        continue-on-error: true

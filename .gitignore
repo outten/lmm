@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.tox/
+.venv/
+venv/
+env/
+
+# Training
+training/runs/
+training/checkpoints/
+*.adapter/
+*.safetensors
+*.bin
+*.pt
+
+# Eval results
+eval/results/
+*.eval.json
+
+# Sandbox runtime artifacts (generated during demos)
+/tmp/lmm-*/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Ollama build cache
+.ollama/
+
+# Logs
+*.log

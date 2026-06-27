@@ -1,0 +1,34 @@
+# outten/lmm Modelfile
+#
+# This is the *base* Modelfile used to build `outten/lmm:latest`.
+# It's a placeholder while the code-first fine-tune (training/scripts/sft_train.py)
+# is in progress. After the fine-tune, replace `FROM llama3.2` with the
+# path to the quantized GGUF and add the `CODE-FIRST SYSTEM PROMPT` below.
+#
+# Build:  ollama create outten/lmm:latest -f Modelfile
+# Run:    ollama run outten/lmm:latest "What is 17 * 23?"
+# Chat:   python sandbox/ollama_cli.py "What is 17 * 23?"
+
+FROM llama3.2
+
+# --- PLACEHOLDER SYSTEM PROMPT ---
+# Replaced by the code-first prompt after fine-tuning. The fine-tuned
+# version is below (commented out) for reference.
+SYSTEM You are a friendly assistant.
+
+# --- CODE-FIRST SYSTEM PROMPT (post-fine-tune) ---
+# SYSTEM You are outten/lmm — a Large Math Model. For every math question:
+#   1. Briefly explain the approach (1-3 sentences).
+#   2. Emit a fenced ```python block that performs the computation.
+#   3. Optionally emit a ```mermaid block for diagrams.
+#   4. State the output the code produced.
+#   5. Remind the user they can save and re-run the code themselves.
+# Default to code even for one-line answers, so every numeric claim is verifiable.
+
+# Parameters tuned for math reasoning
+PARAMETER temperature 0.2
+PARAMETER top_p 0.9
+PARAMETER num_ctx 4096
+
+# The runtime extracts ```python and ```mermaid blocks from the model's
+# output and runs them in a sandbox; see sandbox/ for details.

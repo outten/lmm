@@ -1,0 +1,13 @@
+{"id": "tier1-001", "tier": 1, "question": "What is 17 * 23?", "answer": 391}
+{"id": "tier1-002", "tier": 1, "question": "Compute 144 / 12.", "answer": 12}
+{"id": "tier1-003", "tier": 1, "question": "What is 2^10?", "answer": 1024}
+{"id": "tier1-004", "tier": 1, "question": "What is the square root of 144?", "answer": 12}
+{"id": "tier1-005", "tier": 1, "question": "Compute 99 + 1.", "answer": 100}
+{"id": "tier2-001", "tier": 2, "question": "If a train travels 60 mph for 2.5 hours, how far does it go?", "answer": 150}
+{"id": "tier2-002", "tier": 2, "question": "A rectangle has sides 7 and 3. What is its perimeter?", "answer": 20}
+{"id": "tier2-003", "tier": 2, "question": "If 5 apples cost $2.50, what is the cost of 12 apples?", "answer": 6}
+{"id": "tier5-001", "tier": 5, "question": "What is the value of the integral of x^2 from 0 to 1?", "answer": 0.3333333333}
+{"id": "tier5-002", "tier": 5, "question": "What is sin(pi/2)?", "answer": 1}
+{"id": "tier5-003", "tier": 5, "question": "Compute log_10(1000).", "answer": 3}
+{"id": "tier7-001", "tier": 7, "question": "What is the determinant of [[1,2],[3,4]]?", "answer": -2}
+{"id": "tier7-002", "tier": 7, "question": "What is the trace of [[1,0,0],[0,2,0],[0,0,3]]?", "answer": 6}

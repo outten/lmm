@@ -1,0 +1,30 @@
+# outten/lmm training configuration
+# Each entry is consumed by training/scripts/sft_train.py.
+# Override on the command line or copy+edit for a new run.
+
+base: Qwen/Qwen2.5-Math-7B-Instruct
+# Alternatives (see PROPOSAL.md §3):
+#   - meta-llama/Llama-3.3-70B-Instruct       (capability ceiling)
+#   - deepseek-ai/DeepSeek-R1-Distill-Qwen-7B (reasoning-distilled)
+#   - Qwen/Qwen2.5-Math-1.5B-Instruct          (faster iteration)
+
+data: training/data/sft.jsonl
+output: training/runs/v0.1
+
+# Hyperparameters (PROPOSAL.md §5)
+epochs: 2
+lr: 2.0e-5
+batch_size: 4
+grad_accum: 4
+max_seq_len: 4096
+lora_r: 16
+lora_alpha: 32
+qlora: true
+warmup_ratio: 0.03
+seed: 42
+
+# Save merged 16-bit model for GGUF conversion
+save_merged: true
+
+# Quantization target for GGUF (see convert_to_gguf.py --quant)
+quant: Q4_K_M
